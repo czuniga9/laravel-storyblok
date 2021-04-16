@@ -32,4 +32,20 @@ class Storyblok
 
 		return new $class($response);
 	}
+
+	/**
+	 * Reads the requested story from the API
+	 *
+	 * @param $slug
+	 * @param null $resolveRelations
+	 * @return mixed
+	 * @throws \Storyblok\ApiException
+	 */
+	public function setData($data) {
+		$response = $data;
+
+		$class = $this->getChildClassName('Page', $response['content']['component']);
+
+		return new $class($response);
+	}
 }
